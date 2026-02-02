@@ -2,9 +2,9 @@
 -- Expected Columns:
 -- StudentId, FirstName, LastName, EnrolmentYear
 SELECT
-    StudentId,
-    FirstName,
-    LastName,
-    EnrolmentYear
-FROM Students
-WHERE EnrolmentYear = 2022;
+    student_id AS StudentId,
+    first_name AS FirstName,
+    last_name AS LastName,
+    enrolment_year AS EnrolmentYear
+FROM students
+WHERE enrolment_year = 2022;
