@@ -3,7 +3,7 @@
 -- StudentId, FirstName, LastName, CourseName
 SELECT s.StudentId, s.FirstName, s.LastName, c.CourseName
 FROM Student s
-LEFT JOIN Enrollment e
+LEFT JOIN Enrolment e
   ON s.StudentId = e.StudentId
 LEFT JOIN Course c
   ON e.CourseId = c.CourseId;
