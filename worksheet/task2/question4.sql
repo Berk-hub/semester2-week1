@@ -2,10 +2,11 @@
 -- Expected Columns:
 -- StudentId, FirstName, LastName, CourseName
 SELECT
-    s.student_id AS StudentId,
-    s.first_name AS FirstName,
-    s.last_name AS LastName,
-    c.course_name AS CourseName
-FROM students s
-LEFT JOIN enrolments e ON s.student_id = e.student_id
-LEFT JOIN courses c ON e.course_id = c.course_id;
+    s.StudentId,
+    s.FirstName,
+    s.LastName,
+    c.CourseName
+FROM Student s  
+LEFT JOIN Enrolment e ON s.StudentId = e.StudentId  
+LEFT JOIN Course c ON e.CourseId = c.CourseId  -- Changed from Courses
+;
