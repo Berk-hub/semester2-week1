@@ -7,6 +7,7 @@ SELECT
     s.LastName,
     COALESCE(SUM(c.Credits), 0) AS TotalCreditsPassed
 FROM Student s  
-LEFT JOIN Enrolment e ON s.StudentId = e.StudentId AND e.Grade >= 40  
-LEFT JOIN Course c ON e.CourseId = c.CourseId  
+LEFT JOIN Enrolment e ON s.StudentId = e.StudentId 
+LEFT JOIN Course c ON e.CourseId = c.CourseId    
+WHERE e.Grade >= 40 OR e.Grade IS NULL 
 GROUP BY s.StudentId, s.FirstName, s.LastName;
