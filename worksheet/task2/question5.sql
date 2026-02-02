@@ -1,9 +1,12 @@
 -- For each student, calculate the total number of credits from courses they passed. Assume a passing grade is 40 or higher.
 -- Expected Columns:
 -- StudentId, FirstName, LastName, TotalCreditsPassed
-SELECT s.StudentId, s.FirstName, s.LastName, 
+SELECT s.StudentId, s.FirstName, s.LastName,
        COALESCE(SUM(c.Credits), 0) AS TotalCreditsPassed
-FROM Students s
-LEFT JOIN Enrolments e ON s.StudentId = e.StudentId AND e.Grade >= 40
-LEFT JOIN Courses c ON e.CourseId = c.CourseId
+FROM Student s
+LEFT JOIN Enrollment e
+  ON s.StudentId = e.StudentId
+ AND e.Grade >= 40
+LEFT JOIN Course c
+  ON e.CourseId = c.CourseId
 GROUP BY s.StudentId, s.FirstName, s.LastName;
